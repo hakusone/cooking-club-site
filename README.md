@@ -7,20 +7,20 @@
 ## Question 1
 
 ### (a)
-![Initial Git repo view]images/1a.png
+![Initial Git repo view](images/1a.png)
 
 ### (b)
-![Local directory view]images/1b.png
+![Local directory view](images/1b.png)
 
 ## Question 2
 
 ### (a)
 
 ### (b)
-![Git command line]images/2b.png
+![Git command line](images/2b.png)
 
 ### (c)
-![Git repo after initial commit]images/2c.png
+![Git repo after initial commit](images/2c.png)
 
 ## Question 3
 
