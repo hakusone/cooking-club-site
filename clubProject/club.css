@@ -1,0 +1,54 @@
+header > h1 {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+body {
+  background-color: #ffd6ba;
+  padding: 3em;
+}
+
+nav {
+  background-color: #faf9f9;
+  padding: 1em;
+  max-width: 250px;
+  border-width: 2px;
+  border-color: #bee3db;
+  border-style: dashed;
+}
+
+nav > ul {
+  list-style-type: none;
+}
+
+nav > ul li {
+    padding: 2px;
+}
+
+nav > ul li a {
+  text-decoration: none;
+}
+
+nav > ul li a:hover {
+  background-color: #BEE3DB;
+}
+
+nav > ul li a:visited {
+  color: black;
+}
+
+nav > ul li.active {
+  background-color: #89b0ae;
+}
+
+main {
+  background-color: #89b0ae;
+  padding: 2em;
+}
+
+footer {
+  margin: 1em;
+  text-align: center;
+  font-size: 0.8em;
+  font-style: italic;
+}
