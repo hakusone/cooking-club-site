@@ -1,4 +1,4 @@
-header > h1 {
+header > h1, h2 {
   font-family: 'Poppins', sans-serif;
   text-align: center;
 }
@@ -51,4 +51,38 @@ footer {
   text-align: center;
   font-size: 0.8em;
   font-style: italic;
+}
+
+.food-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table {
+  background-color: #FFD6BA;
+}
+
+th {
+  font-family: 'Poppins', sans-serif;
+}
+
+th, td {
+  padding: 1em;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #BEE3DB;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #FAF9F9;
+}
+
+caption {
+  padding: 5px;
+  font-style: italic;
+  caption-side: bottom;
+  color: #555B6E;
+  text-align: right;
 }
