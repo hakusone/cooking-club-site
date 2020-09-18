@@ -4,6 +4,7 @@
         <title>Events and Activities</title>
         <link rel="stylesheet" href="club.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="eventData.js"></script>
     </head>
     <body>
       <main>
@@ -12,12 +13,9 @@
             <li><a href="index.html">Home</a></li>
             <li class="active"><a href="activities.html">Activities</a></li>
             <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
           </ul>
         </nav>
-        <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><path d="m2.5.5h12c1.1045695 0 2 .8954305 2 2v11.9903615c0 1.1045695-.8954305 2-2 2h-12c-1.1045695 0-2-.8954305-2-2v-11.9903615c0-1.1045695.8954305-2 2-2z" stroke="#2a2e3b" stroke-linecap="round" stroke-linejoin="round"/><path d="m.659 4.5h15.841" stroke="#2a2e3b" stroke-linecap="round" stroke-linejoin="round"/><path d="m4.81640625 11.1552734v-1.0791015h.87890625c.66894531 0 1.12304688-.39550784 1.12304688-.97167971 0-.52734375-.41503907-.92773438-1.10351563-.92773438-.71289063 0-1.15234375.36621094-1.20117187.99609375h-1.36230469c.04882812-1.29882812 1.04980469-2.17285156 2.63671875-2.17285156 1.5625 0 2.43164062.86425781 2.42675781 1.89453125-.00488281.85449219-.54199219 1.41601565-1.29882813 1.60156255v.0927734c.98144532.1416016 1.57714844.7666016 1.57714844 1.7089844 0 1.2353515-1.16210937 2.109375-2.75390625 2.109375-1.59179687 0-2.67578125-.8691407-2.73925781-2.2021485h1.41113281c.04394531.5957031.55175781.9765625 1.30859375.9765625.74707032 0 1.26953125-.4052734 1.26953125-1.015625 0-.625-.48828125-1.0107422-1.27929687-1.0107422zm6.69433595 3.0712891v-5.61035156h-.0878906l-1.72851566 1.19140625v-1.37207031l1.82128906-1.25488282h1.4697266v7.04589844z" fill="#2a2e3b"/></g></svg>
-        <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(2 3)"><path d="m14.5.5c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2l-2.999-.001-2.29389322 2.2938932c-.36048396.360484-.92771502.3882135-1.32000622.0831886l-.09420734-.0831886-2.29389322-2.2938932-2.999.001c-1.1045695 0-2-.8954305-2-2v-10c0-1.1045695.8954305-2 2-2z" stroke="#2a2e3b" stroke-linecap="round" stroke-linejoin="round"/><path d="m13.5 5.5h-6" stroke="#2a2e3b" stroke-linecap="round" stroke-linejoin="round"/><path d="m4.49884033 6.5c.5 0 1-.5 1-1s-.5-1-1-1-.99884033.5-.99884033 1 .49884033 1 .99884033 1zm0 4c.5 0 1-.5 1-1s-.5-1-1-1-.99884033.5-.99884033 1 .49884033 1 .99884033 1z" fill="#2a2e3b"/><path d="m13.5 9.5h-6" stroke="#2a2e3b" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
-        <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="#2a2e3b" stroke-linecap="round" stroke-linejoin="round" transform="translate(1 1)"><path d="m15.5 4.5c1.6568542 0 3 1.34314575 3 3v5c0 1.6568542-1.3431458 3-3 3l-2.468-.001-1.7152977 2.4298518c-.1639804.2320786-.4176379.3818336-.6960544.4156462l-.1206479.0072945c-.55228475 0-1-.4477152-1-1l-.001-1.8527925-.999.001c-1.65685425 0-3-1.3431458-3-3v-5c0-1.65685425 1.34314575-3 3-3z" transform="matrix(-1 0 0 1 24 0)"/><path d="m5.5 12.5-2 2v-4h-.90625561c-1.09544195 0-1.98704628-.88123276-1.9998631-1.97659973l-.07020561-6c-.01292361-1.10449389.87196894-2.01033976 1.97646283-2.02326337.00779976-.00009127.01559998-.0001369.02340027-.0001369h8.97646122c1.1045695 0 2 .8954305 2 2v2"/></g></svg>
-        <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="#2a2e3b" stroke-linecap="round" stroke-linejoin="round" transform="translate(2 3)"><path d="m1.5 4.5h14v7.9976807c0 1.1045695-.8954305 2-2 2h-10c-1.1045695 0-2-.8954305-2-2zm0-3.9777832h14c.5522847 0 1 .44771525 1 1v1.9777832c0 .55228475-.4477153 1-1 1h-14c-.55228475 0-1-.44771525-1-1v-1.9777832c0-.55228475.44771525-1 1-1z"/><path d="m6.5 7.5h4"/></g></svg>
         <header>
           <h2>Events and Activities</h2>
         </header>
@@ -26,33 +24,42 @@
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Times</th>
+                <th>Dates
+                  <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><path d="m2.5.5h12c1.1045695 0 2 .8954305 2 2v11.9903615c0 1.1045695-.8954305 2-2 2h-12c-1.1045695 0-2-.8954305-2-2v-11.9903615c0-1.1045695.8954305-2 2-2z" stroke="#2a2e3b" stroke-linecap="round" stroke-linejoin="round"/><path d="m.659 4.5h15.841" stroke="#2a2e3b" stroke-linecap="round" stroke-linejoin="round"/><path d="m4.81640625 11.1552734v-1.0791015h.87890625c.66894531 0 1.12304688-.39550784 1.12304688-.97167971 0-.52734375-.41503907-.92773438-1.10351563-.92773438-.71289063 0-1.15234375.36621094-1.20117187.99609375h-1.36230469c.04882812-1.29882812 1.04980469-2.17285156 2.63671875-2.17285156 1.5625 0 2.43164062.86425781 2.42675781 1.89453125-.00488281.85449219-.54199219 1.41601565-1.29882813 1.60156255v.0927734c.98144532.1416016 1.57714844.7666016 1.57714844 1.7089844 0 1.2353515-1.16210937 2.109375-2.75390625 2.109375-1.59179687 0-2.67578125-.8691407-2.73925781-2.2021485h1.41113281c.04394531.5957031.55175781.9765625 1.30859375.9765625.74707032 0 1.26953125-.4052734 1.26953125-1.015625 0-.625-.48828125-1.0107422-1.27929687-1.0107422zm6.69433595 3.0712891v-5.61035156h-.0878906l-1.72851566 1.19140625v-1.37207031l1.82128906-1.25488282h1.4697266v7.04589844z" fill="#2a2e3b"/></g></svg>
+                </th>
                 <th>Description</th>
               </tr>
             </thead>
-              <tr>
-                <th>A Serene Breakfast</th>
-                <td>Saturday, Sunday, mornings</td>
-                <td>We take our ease on weekend mornings and make an assortment of cozy breakfast foods to end your weekend on a bright note.</td>
-              </tr>
-              <tr>
-                <th>A Satisfying Dinner</th>
-                <td>Monday, Wednesday, Friday, afternoons</td>
-                <td>Wanted to try something new, but didn't think you'd have the time after a long day at work? We'll try recipes that are both quick to make and fulfilling to eat!</td>
-              </tr>
-              <tr>
-                <th>A Delightful Dessert</th>
-                <td>Friday, Saturday, or Sunday, evenings</td>
-                <td>We try our hand at a sweet or savory dessert dish. Get creative and make enough to share!</td>
-              </tr>
-            <tbody>
-            </tbody>
+            <tbody id="event-schedule"></tbody>
           </table>
-        
+
           <img src="images/oxtail_500.jpg" alt="Oxtail soup" class="food-image">
       </main>
       <footer>
         &copy; 2020 Castro Valley Cooking Club
       </footer>
+
+      <script type="text/javascript">
+        let eventTable = document.getElementById('event-schedule');
+        events.forEach(function(event) {
+          var row = document.createElement('tr');
+          var eventName = document.createTextNode(event.name);
+          var eventDates = document.createTextNode(event.dates.join(', '));
+          var eventDescription = document.createTextNode(event.description);
+
+          var nameCol = document.createElement('td');
+          var dateCol = document.createElement('td');
+          var descriptionCol = document.createElement('td');
+          nameCol.appendChild(eventName);
+          dateCol.appendChild(eventDates);
+          descriptionCol.appendChild(eventDescription);
+
+          row.appendChild(nameCol)
+          row.appendChild(dateCol)
+          row.appendChild(descriptionCol);
+
+          eventTable.appendChild(row);
+        });
+      </script>
     </body>
 </html>

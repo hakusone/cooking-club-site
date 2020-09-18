@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- English -->
+    <head>
+        <title>Signup</title>
+        <link rel="stylesheet" href="club.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    </head>
+    <body>
+      <main>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li class="active"><a href="signup.html">Sign Up</a></li>
+          </ul>
+        </nav>
+        <header>
+          <h2>Sign up!</h2>
+        </header>
+
+        <form>
+          <label for="signup-name">Name</label>
+          <input name="signup-name" type="text" maxlength="20" required>
+          <label for="signup-email">Email</label>
+          <input name="signup-email" type="email" required>
+          <label for="signup-password">Password</label>
+          <input name="signup-password" type="password" maxlength="30" minlength="10" required>
+          <label for="signup-findus">How did you find us?</label>
+          <select name="signup-findus" required>
+            <option>Word of Mouth</option>
+            <option>Internet Search</option>
+            <option>Blog</option>
+            <option>Email</option>
+            <option>Local Event Search</option>
+          </select>
+          <label for="signup-comments">Comments?</label>
+          <textarea name="signup-comments"></textarea>
+          <button id="apply-button" type="button">Sign up</button>
+        </form>
+
+        <section id="ThanksDialog" class="hide">
+          <div>
+            <h3>Thanks for signing up!</h3>
+            <p id="app-summary"></p>
+            <button id="close-dialog-button" type="button">Close</button>
+          </div>
+        </section>
+      </main>
+      <footer>
+        &copy; 2020 Castro Valley Cooking Club
+      </footer>
+
+      <script type="text/javascript">
+        let form = document.querySelector('form');
+        let thanksDialog = document.getElementById('ThanksDialog');
+        getThanksDialog = function() {
+          var signupName = form.elements['signup-name'].value;
+          var signupEmail = form.elements['signup-email'].value;
+          var signupFindus = form.elements['signup-findus'].value;
+
+          var dialogText = document.createTextNode(`Your name: ${signupName}, email: ${signupEmail}, found us via ${signupFindus}`);
+          var dialogEl = document.getElementById('app-summary');
+          dialogEl.innerHTML = '';
+          dialogEl.appendChild(dialogText);
+          thanksDialog.classList.remove('hide');
+          thanksDialog.classList.add('show');
+        };
+
+        let applyButton = document.getElementById('apply-button');
+        applyButton.addEventListener('click', getThanksDialog);
+
+        closeThanksDialog = function() {
+          thanksDialog.classList.add('hide');
+          thanksDialog.classList.remove('show');
+        };
+
+        let closeButton = document.getElementById('close-dialog-button');
+        closeButton.addEventListener('click', closeThanksDialog);
+      </script>
+    </body>
+</html>

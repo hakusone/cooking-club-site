@@ -12,6 +12,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="activities.html">Activities</a></li>
             <li class="active"><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
           </ul>
         </nav>
         <header>
@@ -23,11 +24,59 @@
             <input type="email">
             <label>Password</label>
             <input type="password">
-            <button type="bottom">Login</button>
+            <button type="button">Login</button>
           </form>
+
+          <h3>Doodle Fun!</h3>
+          <div>
+            <button id="add-circle" type="button">Add</button>
+            <button id="clear-all" type="button">Clear</button>
+          </div>
+          <svg id="doodle-fun-svg" width="700" height="400" xmlns="http://www.w3.org/2000/svg" style="background-color: #FAF9F9; margin:15px">
+          </svg>
       </main>
+
       <footer>
         &copy; 2020 Castro Valley Cooking Club
       </footer>
+
+      <script type="text/javascript">
+        let svg = document.getElementById('doodle-fun-svg');
+
+        genRandom = function(min, max) {
+          return Math.floor((Math.random() * (max - min + 1)) + min);
+        };
+
+        genRandomColor = function() {
+          var rgb = [
+            genRandom(0, 255),
+            genRandom(0, 255),
+            genRandom(0, 255)
+          ];
+
+          return "rgb(" + rgb.join(', ') + ")";
+        };
+
+        genRandomCircle = function() {
+          var c = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+
+          c.setAttribute('r', genRandom(5, 50));
+          c.setAttribute('cx', genRandom(25, 675));
+          c.setAttribute('cy', genRandom(25, 375));
+          c.setAttribute('fill', genRandomColor());
+          c.setAttribute('fill-opacity', genRandom(50,100)/100)
+
+          svg.appendChild(c);
+        };
+
+        let addButton = document.getElementById('add-circle');
+        addButton.addEventListener('click', genRandomCircle);
+
+        let clearButton = document.getElementById('clear-all');
+        clearButton.addEventListener('click', function() {
+          svg.innerHTML = '';
+        });
+
+      </script>
     </body>
 </html>

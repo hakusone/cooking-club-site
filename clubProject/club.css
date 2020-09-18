@@ -86,3 +86,40 @@ caption {
   color: #555B6E;
   text-align: right;
 }
+
+input:invalid {
+  background-color: #FFB8A9;
+}
+
+input:valid {
+  background-color: #B0FFA9;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+#ThanksDialog {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(137, 176, 174, 0.5);
+}
+
+#ThanksDialog div {
+  width: 40%;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #ffd6ba;
+  opacity: 100%;
+}
