@@ -2,14 +2,109 @@
 
 **NetID**: hd3647
 
-# Homework #4 Solutions
+# Homework #5 Solutions
 
 ## Question 1
 
 ### (a)
 
-```javascript
+### (b)
 
+```html
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="activities.html">Activities</a></li>
+    <li class="active"><a href="login.html">Login</a></li>
+    <li><a href="signup.html">Sign Up</a></li>
+  </ul>
+</nav>
+```
+
+```css
+nav {
+  background-color: #faf9f9;
+  padding: 1em;
+  border-width: 2px;
+  border-color: #bee3db;
+  border-style: dashed;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+nav > ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+```
+
+## Question 2
+
+### (a)
+
+I would use em.
+
+```css
+body {
+  background-color: #ffd6ba;
+  padding: 5em 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  background-color: #89b0ae;
+  padding: 2em;
+  width: 50em;
+}
+```
+
+### (b)
+
+```css
+.grid-form {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto;
+  column-gap: 1em;
+  row-gap: 0.5em;
+}
+
+.grid-form label {
+  justify-self: end;
+}
+```
+
+### (c)
+
+[Link to website](http://csweb01.csueastbay.edu/~hd3647/clubProject_hw5/index.html)
+
+## Question 3
+
+### (a)
+
+Node.js v12.18.4.
+
+### (b)
+
+```javascript
+const fs = require('fs');
+let fname = __dirname + '/index.html';
+let fdata = fs.readFileSync(fname, 'utf-8');
+let flines = fdata.split('\n');
+console.log('Lines in file index.html: ' + flines.length);
+```
+
+![Picture of result](images/3b.png)
+
+### (c)
+
+```JSON
 events = [
   {
     "name": "A Serene Breakfast",
@@ -32,194 +127,78 @@ events = [
     ],
     "description": "Wanted to try something new, but didn't think you'd have the time after a long day at work? We'll try recipes that are both quick to make and fulfilling to eat!"
   },
-  ...
-
+  {
+    "name": "A Delightful Dessert",
+    "dates": [
+      "September 26th",
+      "October 2nd",
+      "October 11th"
+    ],
+    "description": "We try our hand at a sweet or savory dessert dish. Get creative and make enough to share!"
+  }
+];
 ```
 
-### (b)
-
-### (c)
+### (d)
 
 ```javascript
-let eventTable = document.getElementById('event-schedule');
-events.forEach(function(event) {
-  var row = document.createElement('tr');
-  var eventName = document.createTextNode(event.name);
-  var eventDates = document.createTextNode(event.dates.join(', '));
-  var eventDescription = document.createTextNode(event.description);
+const fs = require('fs');
+let fname = __dirname + '/eventData.json';
+let fdata = fs.readFileSync(fname, 'utf-8');
+let eventData = JSON.parse(fdata);
 
-  var nameCol = document.createElement('td');
-  var dateCol = document.createElement('td');
-  var descriptionCol = document.createElement('td');
-  nameCol.appendChild(eventName);
-  dateCol.appendChild(eventDates);
-  descriptionCol.appendChild(eventDescription);
-
-  row.appendChild(nameCol)
-  row.appendChild(dateCol)
-  row.appendChild(descriptionCol);
-
-  eventTable.appendChild(row);
+eventData.events.forEach(function (event) {
+  console.log(event.name);
+  console.log(event.dates.join(', '));
+  console.log(event.description);
 });
 ```
 
-![Picture of table with generated data](images/1c.png)
-
-## Question 2
-
-### (a)
-
-![Picture of signup form](images/2a.png)
-
-### (b)
-
-![Picture of new navigation](images/2b.png)
-
-## Question 3
-
-### (a)
-
-```html
-<h3>Doodle Fun!</h3>
-<div>
-  <button type="button">Add</button>
-  <button type="button">Clear</button>
-</div>
-<svg id="doodle-fun-svg" width="700" height="400" xmlns="http://www.w3.org/2000/svg" style="background-color: #FAF9F9; margin:15px">
-</svg>
-```
-
-### (b)
-
-```javascript
-let svg = document.getElementById('doodle-fun-svg');
-
-genRandom = function(min, max) {
-  return Math.floor((Math.random() * (max - min + 1)) + min);
-};
-
-genRandomColor = function() {
-  var rgb = [
-    genRandom(0, 255),
-    genRandom(0, 255),
-    genRandom(0, 255)
-  ];
-
-  return "rgb(" + rgb.join(', ') + ")";
-};
-
-genRandomCircle = function() {
-  var c = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
-
-  c.setAttribute('r', genRandom(5, 50));
-  c.setAttribute('cx', genRandom(25, 675));
-  c.setAttribute('cy', genRandom(25, 375));
-  c.setAttribute('fill', genRandomColor());
-  c.setAttribute('fill-opacity', genRandom(50,100)/100)
-
-  svg.appendChild(c);
-};
-
-let addButton = document.getElementById('add-circle');
-addButton.addEventListener('click', genRandomCircle);
-
-let clearButton = document.getElementById('clear-all');
-clearButton.addEventListener('click', function() {
-  svg.innerHTML = '';
-});
-```
+![Picture of result](images/3d.png)
 
 ## Question 4
 
 ### (a)
 
-```html
-<form>
-  <label for="signup-name">Name</label>
-  <input name="signup-name" type="text" maxlength="20" required>
-  <label for="signup-email">Email</label>
-  <input name="signup-email" type="email" required>
-  <label for="signup-password">Password</label>
-  <input name="signup-password" type="password" maxlength="30" minlength="10" required>
-  <label for="signup-findus">How did you find us?</label>
-  <select name="signup-findus" required>
-    <option>Word of Mouth</option>
-    <option>Internet Search</option>
-    <option>Blog</option>
-    <option>Email</option>
-    <option>Local Event Search</option>
-  </select>
-  <label for="signup-comments">Comments?</label>
-  <textarea name="signup-comments"></textarea>
-  <button type="button">Sign up</button>
-</form>
-```
+Used `npm init` command in the Practice folder and filled in the prompts.
 
 ### (b)
 
+```JSON
+{
+  "name": "practice",
+  "version": "1.0.0",
+  "description": "a practice package",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
+```
+
 ### (c)
 
-```css
+### (d)
 
-.show {
-  display: block;
-}
+### (e)
 
-.hide {
-  display: none;
-}
+![Picture of result](images/4e.png)
 
-#ThanksDialog {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(137, 176, 174, 0.5);
-}
+![Picture of result](images/4e2.png)
 
-#ThanksDialog div {
-  width: 40%;
-  position: absolute;
-  top: 30%;
-  left: 30%;
-  margin: auto;
-  padding: 10px;
-  text-align: center;
-  background-color: #ffd6ba;
-  opacity: 100%;
-}
 
-```
-
-```javascript
-let form = document.querySelector('form');
-let thanksDialog = document.getElementById('ThanksDialog');
-getThanksDialog = function() {
-  var signupName = form.elements['signup-name'].value;
-  var signupEmail = form.elements['signup-email'].value;
-  var signupFindus = form.elements['signup-findus'].value;
-
-  var dialogText = document.createTextNode(`Your name: ${signupName}, email: ${signupEmail}, found us via ${signupFindus}`);
-  var dialogEl = document.getElementById('app-summary');
-  dialogEl.innerHTML = '';
-  dialogEl.appendChild(dialogText);
-  thanksDialog.classList.remove('hide');
-  thanksDialog.classList.add('show');
-};
-
-let applyButton = document.getElementById('apply-button');
-applyButton.addEventListener('click', getThanksDialog);
-
-closeThanksDialog = function() {
-  thanksDialog.classList.add('hide');
-  thanksDialog.classList.remove('show');
-};
-
-let closeButton = document.getElementById('close-dialog-button');
-closeButton.addEventListener('click', closeThanksDialog);
-
-```
 ## Question 5
 
-[Link to website](http://csweb01.csueastbay.edu/~hd3647/clubProject_hw4/index.html)
+### (a)
+
+![Picture of result](images/5a.png)
+
+### (b)
+
+![Picture of result](images/5b.png)
