@@ -1,0 +1,41 @@
+/* DON'T MODIFY THESE TWO RULESETS! */
+body {
+  background-color: azure;
+  margin: 1rem;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  background-color: white;
+  padding: 0.5rem;
+  max-width: 30rem;
+}
+/* END OF MY RULESETS */
+
+/* ADD YOUR STYLING BELOW */
+
+h1, h2 {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+main > section {
+  border: goldenrod 1em solid;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+  column-gap: 1em;
+  row-gap: 0.5em;
+}
+
+.inputs label {
+  justify-self: end;
+}
