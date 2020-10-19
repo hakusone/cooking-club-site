@@ -145,3 +145,10 @@ input:valid {
 .grid-form label {
   justify-self: end;
 }
+
+.add-activity {
+  border-width: 2px;
+  border-color: #bee3db;
+  border-style: dashed;
+  padding: 10px;
+}

@@ -6,6 +6,7 @@ import Home from "./home.js";
 import Activities from "./Activities.js";
 import Login from "./login.js";
 import Membership from "./membership.js";
+import AdminActivity from "./AdminActivity.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,6 +16,10 @@ class App extends React.Component {
       role: "user",
       show: "home"
     };
+  }
+
+  switchShow(state) {
+    this.setState({show: state});
   }
 
   render() {
@@ -33,6 +38,9 @@ class App extends React.Component {
       case "membership":
         contents = <Membership />;
         break;
+      case "adminactivity":
+        contents = <AdminActivity events={events} />
+        break;
       default:
         contents = <h2>Something went wrong.</h2>;
         break;
@@ -40,7 +48,7 @@ class App extends React.Component {
 
     return (
       <>
-        <Menu role={this.state.role} show={this.state.show}/>
+        <Menu role={this.state.role} show={this.state.show} switchShow={this.switchShow.bind(this)}/>
         {contents}
     </>);
   }
