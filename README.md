@@ -2,186 +2,227 @@
 
 **NetID**: hd3647
 
-# Homework #7 Solutions
+# Homework #8 Solutions
 
 ## Question 1
 
 ### (a)
 
-Add a new function to App that will change the state to what is specified in the state parameter. When calling the menu item, we will now bind the new function (with reference to the App as `this`), so that the child component can use the function.
-
-The new function:
-```javascript
-switchShow(state) {
-  this.setState({show: state});
-}
-
-```
-
-Calling menu:
-```javascript
-    <Menu role={this.state.role} show={this.state.show} switchShow={this.switchShow.bind(this)}/>
-```
+IPv4 address: 192.168.1.72
+mac address: 04:d3:b0:41:20:58
 
 ### (b)
 
-In menu, we bind a local switchShow function that will be called when the option is clicked.
+Ethernet use a manual table to redirect traffic between ports. However, ethernet addresses are given based on manufacturer as opposed to network location and these addresses are how networks can differentiate between clients. Because ethernet addresses are done manually and by device, the table used by ethernet cannot scale for the entire internet, which is why Internet Protocol (IP) exists.
 
-```javascript
-case "membership":
-  displayNavOptions.push(<li key="membership" className={isActive} onClick={menu.switchShow.bind(menu, 'membership')}><a>Sign Up</a></li>);
-  break;
-```
+### (c)
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_Types#Comments
+protocol: https
+domain: developer.mozilla.org
+port:
+path: /en-US/docs/Web/Javascript/Guide/Grammar_and_Types
+query:
+fragment portions: #Comments
+
+https://www.google.com/search?q=gaia+mission&rlz=1CYPO_enUS751
+protocol: https
+domain: www.google.com
+port:
+path: search
+query: q=gaia+mission&rlz=1CYPO_enUS751
+fragment portions:
+
+http://127.0.0.2:8282/static/index.html
+protocol: http
+domain: 127.0.0.2
+port: 8282
+path: index.html
+query:
+fragment portions:
 
 ## Question 2
 
 ### (a)
 
-![Picture of UI mockup](images/2a.png)
+GET.
+200: means successful response.
+https.
 
 ### (b)
 
+Request Headers
+```
+GET / HTTP/1.1
+Host: bb.csueastbay.edu
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: _ga=GA1.2.955148904.1594316741; _gcl_au=1.1.754180272.1597773571; __utmz=208548673.1597859182.4.2.utmcsr=csueastbay.edu|utmccn=(referral)|utmcmd=referral|utmcct=/students/academics-and-studying/blackboard.html; AWSELB=D3570BC914533D9ACC5FBEA2A258730F699E691A0AC95F4514958C9FF4BF56EAF7767641A5CF23231EED62A29DC2BE901660F86BA0932434643D6A2162D32D3DA82515A3D4; AWSELBCORS=D3570BC914533D9ACC5FBEA2A258730F699E691A0AC95F4514958C9FF4BF56EAF7767641A5CF23231EED62A29DC2BE901660F86BA0932434643D6A2162D32D3DA82515A3D4; __utma=208548673.955148904.1594316741.1603487335.1603656816.72; __utmc=208548673; __utmt=1; __utmb=208548673.1.10.1603656816; JSESSIONID=A17ED2F9DB4352DF67E3A897422B3F94; BbRouter=expires:1603658619,id:44BB2A1D03459D8FEEB0A69969F80617,signature:2a6622e67841ba6c3be222528fb3214ee09678ee80f3444ab4fce18cdc19289a,site:aefdf5db-8c6a-4e8e-8bf7-fb9f1f4dcdf0,v:2,xsrf:474205d4-a15a-46a6-8e13-8177e1540fd0
+```
+
 ### (c)
 
-![Picture of adding activity functionality](images/2c.png)
+Response Headers
+```
+HTTP/1.1 200
+Cache-Control: private
+Cache-Control: max-age=0
+Cache-Control: no-store
+Cache-Control: must-revalidate
+Content-Encoding: gzip
+Content-Language: en-US
+Content-Security-Policy: frame-ancestors 'self'
+Content-Type: text/html;charset=UTF-8
+Date: Sun, 25 Oct 2020 20:13:44 GMT
+Expires: Fri, 25 Oct 2019 20:13:44 GMT
+Last-Modified: Wed, 25 Oct 2000 20:13:44 GMT
+P3P: CP="CAO PSA OUR"
+Pragma: private
+Server: openresty/1.9.3.1
+Set-Cookie: BbRouter=expires:1603658624,id:44BB2A1D03459D8FEEB0A69969F80617,signature:df305af49331eccc881ededbcec0399b7f9b37776ea92293cbfeca43d428f027,site:aefdf5db-8c6a-4e8e-8bf7-fb9f1f4dcdf0,v:2,xsrf:474205d4-a15a-46a6-8e13-8177e1540fd0; Path=/; Secure; HttpOnly
+vary: accept-encoding
+X-Blackboard-appserver: ip-10-145-29-170.ec2.internal
+X-Blackboard-product: Blackboard Learn &#8482; 3800.19.0-rel.54+54663c8
+X-Frame-Options: SAMEORIGIN
+Content-Length: 18754
+Connection: keep-alive
+
+```
 
 ### (d)
 
-AdminActivity
-```javascript
-class AdminActivity extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      events: this.props.events
-    }
-  }
-```
+Blackboard's appserver is `ip-10-145-29-170.ec2.internal`.
 
-AddActivity
-```javascript
-class AddActivity extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      dates: '',
-      description: ''
-    }
-    this.addActivity = props.addActivity;
-  }
-```
-
-### (e)
-
-```javascript
-let main = <div className="add-activity">
-  <form className="grid-form">
-    <label>Name</label>
-    <input type="text" name="name" onChange={this.updateValue.bind(this, 'name')} />
-    <label>Date(s)</label>
-    <input type="text" name="dates" onChange={this.updateValue.bind(this, 'dates')} />
-    <label>Description</label>
-    <input type="text" name="description" onChange={this.updateValue.bind(this, 'description')} />
-    <button type="button" onClick={this.addActivityData.bind(this)}>Add</button>
-  </form>
-</div>;
+There's a cookie set:
 
 ```
-
-### (f)
-
-AdminActivity
-```javascript
-  addActivity(activity) {
-    this.setState({events: this.state.events.concat(activity)});
-  }
-```
-
-AddActivity
-```javascript
-  updateValue(prop, event) {
-    this.state[prop] = event.currentTarget.value;
-  }
-
-  addActivityData() {
-    let eventData = {
-      name: this.state.name,
-      dates: this.state.dates,
-      description: this.state.description
-    }
-
-    this.addActivity(eventData);
-  }
+_ga=GA1.2.955148904.1594316741; _gcl_au=1.1.754180272.1597773571; __utmz=208548673.1597859182.4.2.utmcsr=csueastbay.edu|utmccn=(referral)|utmcmd=referral|utmcct=/students/academics-and-studying/blackboard.html; AWSELB=D3570BC914533D9ACC5FBEA2A258730F699E691A0AC95F4514958C9FF4BF56EAF7767641A5CF23231EED62A29DC2BE901660F86BA0932434643D6A2162D32D3DA82515A3D4; AWSELBCORS=D3570BC914533D9ACC5FBEA2A258730F699E691A0AC95F4514958C9FF4BF56EAF7767641A5CF23231EED62A29DC2BE901660F86BA0932434643D6A2162D32D3DA82515A3D4; __utma=208548673.955148904.1594316741.1603487335.1603656816.72; __utmc=208548673; __utmt=1; __utmb=208548673.1.10.1603656816; JSESSIONID=A17ED2F9DB4352DF67E3A897422B3F94; BbRouter=expires:1603658619,id:44BB2A1D03459D8FEEB0A69969F80617,signature:2a6622e67841ba6c3be222528fb3214ee09678ee80f3444ab4fce18cdc19289a,site:aefdf5db-8c6a-4e8e-8bf7-fb9f1f4dcdf0,v:2,xsrf:474205d4-a15a-46a6-8e13-8177e1540fd0
 ```
 
 ## Question 3
 
 ### (a)
 
-![Before activity delete](images/3a1.png)
-
-![After activity delete](images/3a2.png)
+```
+DNS Servers:
+[ '2600:1700:5fa1:c8b0::1', '192.168.1.254' ]
+```
 
 ### (b)
 
-```javascript
-return <tr key={"event"+i}>
-          <td><button type="button" onClick={admin.deleteActivity.bind(admin, i)}>Delete</button></td>
-          <td>{event.name}</td>
-          <td>{event.dates}</td>
-          <td>{event.description}</td>
-       </tr>;
+```
+Address for mynoise.net
+[ '77.111.240.110' ]
 ```
 
 ### (c)
 
-```javascript
-deleteActivity(i) {
-  let updateEvents = this.state.events.filter(function(event, index) {
-    return index != i;
-  });
-  this.setState({events:updateEvents});
-}
-
 ```
-
-### (d)
-
-[Link to website](http://csweb01.csueastbay.edu/~hd3647/clubReact_hw7/)
-
+All the info for wikipedia.org:
+[
+  { address: '198.35.26.96', ttl: 7, type: 'A' },
+  { value: 'ns2.wikimedia.org', type: 'NS' },
+  { value: 'ns0.wikimedia.org', type: 'NS' },
+  { value: 'ns1.wikimedia.org', type: 'NS' }
+]
+```
 ## Question 4
 
 ### (a)
 
-It will print out:
-```
-Is this the start?
-When does this print?
-Is this the end?
-this is a msg from CS651
-This is a msg from CS351
-```
-`setTimeout()` is a function that will execute a function after a specified amount of time. One `setTimeout()` call has no parameter and defaults to 0, while the other call is specified to be 0. They both look like they should be run immediately, except that modern browsers have throttling in place when successive callbacks are executed, delaying each call by 4ms. Hence the `console.log()` calls are executed immediately and the `setTimeout()` calls are slightly delayed.
-
-Source: [MDN](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout)
+![Date time server](images/4a.png)
 
 ### (b)
 
-`Promise.race` takes a number of promises and runs them at the same time, and returns the value of which promise finishes first. Since the promises have random timeouts, we can find out who wins the race by adding an additional statement to output the value of the winning promise like so:
+![netID path](images/4b.png)
+
+## Question 5
+
+### (a)
+
+![clubServer info path](images/5a.png)
+
+### (b)
 
 ```javascript
-let racingPs = Promise.race(myPs).then(function(value) {
-  winner(value);
+const fs = require('fs');
+var express = require('express');
+var app = express();
+var eventsRaw = fs.readFileSync('./eventData.json');
+var events = JSON.parse(eventsRaw);
+
+app.get('/info', function (req, res) {
+  clubData = {
+    "clubName": "Castro Valley Cooking Club",
+    "ownerName": "Sharon Wong",
+    "ownerNetId": "hd3647"
+  }
+  res.json(clubData);
 });
+
+app.get('/activities', function (req, res) {
+  res.json(events);
+});
+
+app.listen(3001, function () {
+    console.log(`Club server listening on IPv4: http://localhost:3001`);
+});
+
 ```
-
-Source: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)
-
 ### (c)
 
-![Picture of in order http requests](images/4c.png)
+![clubServer info path](images/5c.png)
 
 ### (d)
 
-![Picture of parallel http requests](images/4d.png)
+```JavaScript
+app.post('/activities', function(req, res) {
+  var newEvent = req.body;
+  events.push(newEvent);
+  res.json(events);
+});
+
+```
+
+### (e)
+
+```JavaScript
+const fetch = require('node-fetch');
+
+let site = {
+  url: 'http://localhost:3001'
+};
+
+var body = {
+  "name": "Test Event",
+  "dates": [
+    "September 20th"
+  ],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl mi, sagittis quis tellus in, sodales tincidunt neque. Donec non scelerisque diam."
+};
+
+let p3 = fetch(site.url +'/activities', {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: { 'Content-Type': 'application/json' }
+          })
+          .then(res => res.json())
+          .then(data => {
+            console.log(`Updated Club Activities:`)
+            console.log(data);
+          }
+        );
+
+
+console.log("Testing web requests...");
+Promise.all([p3]);
+```
