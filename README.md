@@ -8,8 +8,9 @@
 
 ### (a)
 
-IPv4 address: 192.168.1.72
+```IPv4 address: 192.168.1.72
 mac address: 04:d3:b0:41:20:58
+```
 
 ### (b)
 
@@ -17,6 +18,7 @@ Ethernet use a manual table to redirect traffic between ports. However, ethernet
 
 ### (c)
 
+```
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_Types#Comments
 protocol: https
 domain: developer.mozilla.org
@@ -40,6 +42,7 @@ port: 8282
 path: index.html
 query:
 fragment portions:
+```
 
 ## Question 2
 
