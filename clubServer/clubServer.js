@@ -9,6 +9,9 @@ var events = JSON.parse(eventsRaw);
 var usersRaw = fs.readFileSync('./clubUsersHash.json');
 var users = JSON.parse(usersRaw);
 
+const host = '127.0.0.1';
+const port = '3040';
+
 app.get('/info', function (req, res) {
   var clubData = {
     "clubName": "Castro Valley Cooking Club",
@@ -102,9 +105,10 @@ app.post('/login', function(req, res) {
   }
 });
 
-app.listen(3001, function () {
-    console.log(`Club server listening on IPv4: http://localhost:3001`);
+app.listen(port, host, function () {
+console.log(`clubServer.js app listening on IPv4: ${host}:${port}`);
 });
+
 
 app.use((err, req, res, next) => {
   res.locals.error = err;

@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 let site = {
-  url: 'http://localhost:3001',
+  url: 'https://www.drbsclasses.org/student40/node',
   options: {method: "GET"}
 };
 
