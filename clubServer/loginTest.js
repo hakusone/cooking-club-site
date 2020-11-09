@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 let site = {
-  url: 'https://www.drbsclasses.org/student40/node'
+  url: 'http://localhost:3040'
 };
 
 let p1 = fetch(site.url +'/login', {
@@ -15,6 +15,13 @@ let p1 = fetch(site.url +'/login', {
           .then(res => {
             console.log("Trying good login...");
             console.log(`After good login status:`)
+            var cookie = res.headers.get('set-cookie');
+            var newCookie = new Object;
+            cookie.split('; ').forEach(function(eachCookie) {
+              splitCookie = eachCookie.split('=');
+              newCookie[splitCookie[0]] = splitCookie[1];
+            });
+            console.log(newCookie);
             console.log(res.statusText);
             return res.json();
           })

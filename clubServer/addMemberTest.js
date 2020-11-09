@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 let site = {
-  url: 'https://www.drbsclasses.org/student40/node'
+  url: 'http://localhost:3040'
 };
 
 var body = {
@@ -9,7 +9,7 @@ var body = {
   "lastName": "Barker2",
   "email": "sampleEmail1234@outlook.com",
   "password": "samplePassword!",
-  "role": "user"
+  "role": "member"
 };
 
 let p3 = fetch(site.url +'/members', {

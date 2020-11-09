@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 let site = {
-  url: 'https://www.drbsclasses.org/student40/node'
+  url: 'http://localhost:3040'
 };
 
 var body = {

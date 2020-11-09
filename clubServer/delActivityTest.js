@@ -1,18 +1,10 @@
 const fetch = require('node-fetch');
 
 let site = {
-  url: 'https://www.drbsclasses.org/student40/node'
+  url: 'http://localhost:3040'
 };
 
-let p1 = fetch(site.url + '/activities', site.options)
-          .then(res => res.json())
-          .then(data => {
-            console.log(`Club Activities:`);
-            console.log(data);
-          }
-        );
-
-var body = {"id": 1};
+var body = {"id": 'lwVRFuKUCAAIbfMM'};
 
 let p2 = fetch(site.url +'/activities', {
             method: "DELETE",
@@ -26,19 +18,6 @@ let p2 = fetch(site.url +'/activities', {
           }
         );
 
-var body = {"id": 4};
-
-let p3 = fetch(site.url +'/activities', {
-          method: "DELETE",
-          body: JSON.stringify(body),
-          headers: { 'Content-Type': 'application/json' }
-        })
-        .then(res => res.json())
-        .then(data => {
-          console.log(`Activities after deletion:`)
-          console.log(data);
-        }
-      );
-
 console.log("Testing web requests...");
-p1.then(p2).then(p3);
+
+p2.then();
