@@ -15,11 +15,7 @@
 {"name":"Test Event","dates":"September 20th","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl mi, sagittis quis tellus in, sodales tincidunt neque. Donec non scelerisque diam.","_id":"HobW9TdChDrAwU3J"}
 {"name":"Test Event","dates":["September 20th"],"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl mi, sagittis quis tellus in, sodales tincidunt neque. Donec non scelerisque diam.","_id":"HserA3WpO4JOkeLn"}
 {"name":"Test Event","dates":["September 20th"],"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl mi, sagittis quis tellus in, sodales tincidunt neque. Donec non scelerisque diam.","_id":"JcSl0ZhJ8cssH9j6"}
+{"name":"Test Event","dates":"September 20th","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl mi, sagittis quis tellus in, sodales tincidunt neque. Donec non scelerisque diam.","_id":"N1OQXND3G1SgIoES"}
 {"name":"Test Event","dates":["September 20th"],"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl mi, sagittis quis tellus in, sodales tincidunt neque. Donec non scelerisque diam.","_id":"Nhkd3mjDRD1IakHX"}
 {"name":"Test Event","dates":["September 20th"],"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl mi, sagittis quis tellus in, sodales tincidunt neque. Donec non scelerisque diam.","_id":"Puvo19cSMz63oCUR"}
 {"name":"Test Event","dates":["September 20th"],"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl mi, sagittis quis tellus in, sodales tincidunt neque. Donec non scelerisque diam.","_id":"Qn1lTgiPCLz4wR3H"}
-{"name":"Test Event","dates":["September 20th"],"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl mi, sagittis quis tellus in, sodales tincidunt neque. Donec non scelerisque diam.","_id":"Vv0IESbPgY324ozt"}
-{"name":"Test Event","dates":"September 20th","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl mi, sagittis quis tellus in, sodales tincidunt neque. Donec non scelerisque diam.","_id":"gq55TYJJUdVP3cxP"}
-{"$$deleted":true,"_id":"gq55TYJJUdVP3cxP"}
-{"name":"Test Event","dates":"September 20th","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl mi, sagittis quis tellus in, sodales tincidunt neque. Donec non scelerisque diam.","_id":"N1OQXND3G1SgIoES"}
-{"$$deleted":true,"_id":"Vv0IESbPgY324ozt"}

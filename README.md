@@ -114,7 +114,14 @@ if (!valid) {
 
 ### (a)
 
-
+```javascript
+function jsonErrors(err, req, res, next) {
+  const status = err.status || 500;
+  res.status(status);
+  res.json('Something went wrong.');
+  console.log(err.message + "\n" + JSON.stringify(err));
+}
+```
 
 ### (b)
 
@@ -191,17 +198,25 @@ app.post('/applicants', express.json(), function (req, res) {
 
 ### (c)
 
-![member add test image](images/3c.png)]
+![member add test image](images/3c.png)
+
+### (d)
+
+[Link to deployment](https://www.drbsclasses.org/student40/node/info)
 
 ## Question 4
 
 ### (a)
 
+1. Where should the development proxy (devProxy) code be located? **with the react client code**
+2. What paths are you going to forward to the server? **/info, /activities, /login, /logout, /users**
+3. On what IP address and port are you going to run your club server? **IP: 127.0.0.1. port 3040**
+4. On what IP address and port are you going to run your devProxy? **localhost:1234**
+5. At which URL will you point your browser? **localhost:1234**
+6. How many command terminals do you need and what will be running in each? **2. one for react server via the proxy (node proxy.js), and one for backend server (node clubServer.js)**
+7. What additional NPM packages do you need to install and where? **parcel-bundler, express, http-proxy-middleware, all in the react project directory**
+8. How can you test that the proxy is forwarding your requests? **go to one of the forwarded paths and see if the data from the backend server is returned instead. for example, I went to localhost:1234/activities and localhost:1234/info**
 
 ### (b)
 
-### (c)
-
-## Question 5
-
-[Link to deployment](https://www.drbsclasses.org/student40/node/info)
+![devProxy image](images/4b.png)
