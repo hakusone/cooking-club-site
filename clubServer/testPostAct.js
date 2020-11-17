@@ -6,9 +6,7 @@ let site = {
 
 var body = {
   "name": "Test Event",
-  "dates": [
-    "September 20th"
-  ],
+  "dates": "September 20th",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl mi, sagittis quis tellus in, sodales tincidunt neque. Donec non scelerisque diam."
 };
 

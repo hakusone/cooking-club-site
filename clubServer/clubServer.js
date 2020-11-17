@@ -3,9 +3,24 @@ let app = express();
 const fs = require('fs');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
+const  Ajv = require('ajv');
+const ajv = new Ajv();
+const memberSchema = require("./memberSchema.json");
+const activitySchema = require("./activitySchema.json");
+const applicantSchema = require("./applicantSchema.json");
 
 const bodyParser = require('body-parser');
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '1000b'}));
+
+function validate(schema, data) {
+  if (!ajv.validate(schema, data)) {
+    ajv.errors.forEach(function(error) {
+      console.log(error.message + "\n" + JSON.stringify(error));
+    });
+    return false;
+  }
+  return true;
+}
 
 const host = '127.0.0.1';
 const port = '3040';
@@ -50,10 +65,11 @@ function checkAdminMiddleware(req, res, next) {
 	}
 };
 
-let errMsg = function(err) {
+function jsonErrors(err, req, res, next) {
   const status = err.status || 500;
   res.status(status);
   res.json('Something went wrong.');
+  console.log(err.message + "\n" + JSON.stringify(err));
 }
 
 app.get('/info', function (req, res) {
@@ -63,28 +79,34 @@ app.get('/info', function (req, res) {
     "ownerNetId": "hd3647"
   }
   res.json(clubData);
-});
+}, jsonErrors);
 
 app.get('/activities', function (req, res) {
   eventsDB.find({})
     .then(function(docs) {
       res.json(docs);
-    })
-    .catch(errMsg);
-});
+    });
+}, jsonErrors);
 
 app.post('/activities', checkAdminMiddleware, express.json(), function(req, res) {
   var newEvent = req.body;
-  eventsDB.insert(newEvent)
-    .then()
-    .catch(errMsg);
 
-  eventsDB.find({})
-    .then(function(docs) {
-      res.json(docs);
-    })
-    .catch(errMsg);
-});
+  var valid = validate(activitySchema, newEvent);
+  if (!valid) {
+    res.status(400).json({
+      error: true,
+      message: valid
+    });
+  }
+  else {
+    eventsDB.insert(newEvent);
+
+    eventsDB.find({})
+      .then(function(docs) {
+        res.json(docs);
+      });
+  }
+}, jsonErrors);
 
 app.delete('/activities', checkAdminMiddleware, express.json(), function(req, res) {
   var id = req.body.id;
@@ -98,27 +120,22 @@ app.delete('/activities', checkAdminMiddleware, express.json(), function(req, re
         });
       }
       else {
-        eventsDB.remove({_id: id})
-          .then()
-          .catch(errMsg);
+        eventsDB.remove({_id: id});
 
         eventsDB.find({})
           .then(function(docs) {
             res.json(docs);
-          })
-          .catch(errMsg);
+          });
       }
-    })
-    .catch(errMsg);
-});
+    });
+}, jsonErrors);
 
 app.get('/members', checkAdminMiddleware, express.json(), function (req, res) {
   usersDB.find({}, {password: 0})
     .then(function(docs) {
       res.json(docs);
-    })
-    .catch(errMsg);
-});
+    });
+}, jsonErrors);
 
 app.post('/members', checkAdminMiddleware, express.json(), function (req, res) {
   var newMember = req.body;
@@ -126,15 +143,22 @@ app.post('/members', checkAdminMiddleware, express.json(), function (req, res) {
   var hash = bcrypt.hashSync(newMember.password, salt);
   newMember.password = hash;
 
-  usersDB.insert(newMember)
-    .then()
-    .catch(errMsg);
-
-  usersDB.find({}, {password: 0})
-    .then(function(docs) {
-      res.json(docs);
+  var valid = validate(memberSchema, newMember);
+  if (!valid) {
+    res.status(400).json({
+      error: true,
+      message: valid
     });
-});
+  }
+  else {
+    usersDB.insert(newMember);
+
+    usersDB.find({}, {password: 0})
+      .then(function(docs) {
+        res.json(docs);
+      });
+  }
+}, jsonErrors);
 
 app.delete('/members', checkAdminMiddleware, express.json(), function(req, res) {
   var id = req.body.id;
@@ -148,18 +172,15 @@ app.delete('/members', checkAdminMiddleware, express.json(), function(req, res) 
       });
     }
     else {
-      usersDB.remove({_id: id})
-        .then()
-        .catch(errMsg);
+      usersDB.remove({_id: id});
 
       usersDB.find({}, {password: 0})
         .then(function(docs) {
           res.json(docs);
         });
     }
-  })
-  .catch(errMsg);
-});
+  });
+}, jsonErrors);
 
 app.post('/login', express.json(), function(req, res) {
   var email = req.body.email;
@@ -193,9 +214,8 @@ app.post('/login', express.json(), function(req, res) {
         message:`User/Password error`
       });
     }
-  })
-  .catch(errMsg);
-});
+  });
+}, jsonErrors);
 
 app.get('/logout', function (req, res) {
     let options = req.session.cookie;
@@ -208,14 +228,24 @@ app.get('/logout', function (req, res) {
     })
 });
 
+
+app.post('/applicants', express.json(), function (req, res) {
+  var newApplicant = req.body;
+  var valid = validate(applicantSchema, newApplicant);
+  if (!valid) {
+    res.status(400).json({
+      error: true,
+      message: JSON.stringify(valid)
+    });
+  }
+  else {
+    res.status(200).json('Applicant created successfully.');
+  }
+}, jsonErrors);
+
 app.listen(port, host, function () {
   console.log(`clubServer.js app listening on IPv4: ${host}:${port}`);
 });
 
 
-app.use((err, req, res, next) => {
-  res.locals.error = err;
-  const status = err.status || 500;
-  res.status(status);
-  res.json('Something went wrong.');
-});
+app.use(jsonErrors);
