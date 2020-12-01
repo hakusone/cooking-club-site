@@ -48,6 +48,8 @@ function setUpSessionMiddleware(req, res, next) {
 
 app.use(setUpSessionMiddleware);
 
+app.use(express.static('public'));
+
 function checkMemberMiddleware(req, res, next) {
 	if (req.session.user.role === "guest") {
 		res.status(401).json({error: "Forbidden"});;

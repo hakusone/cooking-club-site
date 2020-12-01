@@ -4,6 +4,27 @@ class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.switchShow = props.switchShow;
+    this.updateUser = props.updateUser;
+  }
+
+  logoutUser() {
+    let menu = this;
+    return fetch('/logout', {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(res => res.json())
+    .then(function(data) {
+      menu.updateUser({
+        role: "guest",
+        email: "",
+        name: ""
+      });
+
+      menu.switchShow('home');
+    });
   }
 
   render() {
@@ -11,7 +32,7 @@ class Menu extends React.Component {
 
     let roleNav = {
       "guest" : ["home", "activities", "login", "membership"],
-      "user" : ["home", "activities", "adminactivity", "logout"],
+      "member" : ["home", "activities", "adminactivity", "logout"],
       "admin" : ["home", "activities", "adminactivity", "logout"],
     }
 
@@ -40,7 +61,7 @@ class Menu extends React.Component {
           displayNavOptions.push(<li key="membership" className={isActive} onClick={menu.switchShow.bind(menu, 'membership')}><a>Sign Up</a></li>);
           break;
         case "logout":
-          displayNavOptions.push(<li key="logout" className={isActive}><a>Logout</a></li>);
+          displayNavOptions.push(<li key="logout" className={isActive} onClick={menu.logoutUser.bind(menu)}><a>Logout</a></li>);
           break;
         default:
           break;
@@ -51,7 +72,7 @@ class Menu extends React.Component {
       <ul>
         {displayNavOptions}
       </ul>
-    </nav>
+    </nav>;
 
     return contents;
   }

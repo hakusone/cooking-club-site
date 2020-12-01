@@ -8,7 +8,7 @@ class AddActivity extends React.Component {
       dates: '',
       description: ''
     }
-    this.addActivity = props.addActivity;
+    this.updateActivities = props.updateActivities;
   }
 
   updateValue(prop, event) {
@@ -16,13 +16,24 @@ class AddActivity extends React.Component {
   }
 
   addActivityData() {
+    let addActivity = this;
     let eventData = {
       name: this.state.name,
       dates: this.state.dates,
       description: this.state.description
-    }
+    };
 
-    this.addActivity(eventData);
+    fetch('/activities', {
+      method: "POST",
+      body: JSON.stringify(eventData),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+        addActivity.updateActivities(data);
+    });
   }
 
   render() {

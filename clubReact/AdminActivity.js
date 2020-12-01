@@ -5,19 +5,41 @@ class AdminActivity extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      events: this.props.events
+      events: []
     }
   }
 
-  addActivity(activity) {
-    this.setState({events: this.state.events.concat(activity)});
+  componentDidMount() {
+    let activities = this;
+    let data = fetch('/activities', {
+      method: "GET",
+      headers: {'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+    .then(data => {
+      activities.setState({events: data});
+    });
+  }
+
+  updateActivities(activities) {
+    this.setState({events: activities});
   }
 
   deleteActivity(i) {
-    let updateEvents = this.state.events.filter(function(event, index) {
-      return index != i;
+    let activities = this;
+    let id = this.state.events[i]._id;
+
+    fetch('/activities', {
+      method: "DELETE",
+      body: JSON.stringify({id: id}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      activities.setState({events: data});
     });
-    this.setState({events:updateEvents});
   }
 
   render() {
@@ -52,7 +74,7 @@ class AdminActivity extends React.Component {
       </header>
 
       <p>▼ Add Activity</p>
-      <AddActivity addActivity={this.addActivity.bind(this)} />
+      <AddActivity updateActivities={this.updateActivities.bind(this)} />
 
       <h3>Activities</h3>
       {table}

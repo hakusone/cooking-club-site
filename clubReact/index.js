@@ -13,13 +13,23 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      role: "user",
+      name: "",
+      email: "",
+      role: "guest",
       show: "home"
     };
   }
 
   switchShow(state) {
     this.setState({show: state});
+  }
+
+  updateUser(user) {
+    this.setState({
+      role: user.role,
+      email: user.email,
+      name: user.name
+    });
   }
 
   render() {
@@ -30,10 +40,10 @@ class App extends React.Component {
         contents = <Home />;
         break;
       case "activities":
-        contents = <Activities events={events} />;
+        contents = <Activities />;
         break;
       case "login":
-        contents = <Login />;
+        contents = <Login updateUser={this.updateUser.bind(this)} />;
         break;
       case "membership":
         contents = <Membership />;
@@ -46,9 +56,12 @@ class App extends React.Component {
         break;
     }
 
+    let userInfo = (this.state.name) ? <p>Logged in as: {this.state.name}, {this.state.role}</p> : '';
+
     return (
       <>
-        <Menu role={this.state.role} show={this.state.show} switchShow={this.switchShow.bind(this)}/>
+        <Menu role={this.state.role} show={this.state.show} switchShow={this.switchShow.bind(this)} updateUser={this.updateUser.bind(this)} />
+        {userInfo}
         {contents}
     </>);
   }
