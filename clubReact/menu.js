@@ -9,7 +9,7 @@ class Menu extends React.Component {
 
   logoutUser() {
     let menu = this;
-    return fetch('/logout', {
+    return fetch('logout', {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ class Menu extends React.Component {
 
     let roleNav = {
       "guest" : ["home", "activities", "login", "membership"],
-      "member" : ["home", "activities", "adminactivity", "logout"],
+      "member" : ["home", "activities", "logout"],
       "admin" : ["home", "activities", "adminactivity", "logout"],
     }
 

@@ -14,6 +14,7 @@
     "http-proxy-middleware": "^1.0.6",
     "images": "^3.2.3",
     "node-fetch": "^2.6.1",
+    "parcel": "^1.12.4",
     "parcel-bundler": "^1.12.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

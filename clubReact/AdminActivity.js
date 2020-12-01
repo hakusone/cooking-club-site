@@ -11,7 +11,7 @@ class AdminActivity extends React.Component {
 
   componentDidMount() {
     let activities = this;
-    let data = fetch('/activities', {
+    let data = fetch('activities', {
       method: "GET",
       headers: {'Content-Type': 'application/json'}
     })
@@ -29,7 +29,7 @@ class AdminActivity extends React.Component {
     let activities = this;
     let id = this.state.events[i]._id;
 
-    fetch('/activities', {
+    fetch('activities', {
       method: "DELETE",
       body: JSON.stringify({id: id}),
       headers: {

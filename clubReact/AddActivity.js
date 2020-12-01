@@ -23,7 +23,7 @@ class AddActivity extends React.Component {
       description: this.state.description
     };
 
-    fetch('/activities', {
+    fetch('activities', {
       method: "POST",
       body: JSON.stringify(eventData),
       headers: {

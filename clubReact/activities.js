@@ -11,7 +11,7 @@ class Activities extends React.Component {
 
   componentDidMount() {
     let activities = this;
-    fetch('/activities', {
+    fetch('activities', {
       method: "GET",
       headers: {'Content-Type': 'application/json'}
     })

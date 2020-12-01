@@ -26,7 +26,7 @@ class Login extends React.Component {
 
     let hasError = false;
 
-    fetch('/login', {
+    fetch('login', {
       method: "POST",
       body: JSON.stringify(body),
       headers: {'Content-type': 'application/json'}
@@ -73,7 +73,7 @@ class Login extends React.Component {
     let main = <main>
       <header>
         <h2>Login</h2>
-      </header>;
+      </header>
       {content}
       {errorMsg}
     </main>;

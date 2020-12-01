@@ -36,7 +36,7 @@ class Login extends React.Component {
 
     let hasError = false;
 
-    fetch('/login', {
+    fetch('login', {
       method: "POST",
       body: JSON.stringify(body),
       headers: {'Content-type': 'application/json'}
@@ -113,7 +113,7 @@ constructor(props) {
 
 componentDidMount() {
   let activities = this;
-  fetch('/activities', {
+  fetch('activities', {
     method: "GET",
     headers: {'Content-Type': 'application/json'}
   })
@@ -139,7 +139,7 @@ addActivityData() {
     description: this.state.description
   };
 
-  fetch('/activities', {
+  fetch('activities', {
     method: "POST",
     body: JSON.stringify(eventData),
     headers: {
@@ -168,7 +168,7 @@ deleteActivity(i) {
   let activities = this;
   let id = this.state.events[i]._id;
 
-  fetch('/activities', {
+  fetch('activities', {
     method: "DELETE",
     body: JSON.stringify({id: id}),
     headers: {
@@ -193,3 +193,5 @@ deleteActivity(i) {
 ### (a)
 
 ### (b)
+
+[URL to Site](https://www.drbsclasses.org/student40/node/)
