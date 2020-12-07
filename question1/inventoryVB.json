@@ -1,0 +1,17 @@
+{
+  "storeName": "Windsurf Sails Here",
+  "sails": [
+    {
+      "sailName": "Wave4.5",
+      "quantity": 13
+    },
+    {
+      "sailName": "Wave5.5",
+      "quantity": 15
+    },
+    {
+      "sailName": "Slalom6.5",
+      "quantity": 9
+    }
+  ]
+}
